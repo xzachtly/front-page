@@ -1,6 +1,5 @@
 <div class="container">
     <div [hidden]="submitted">
-      <h1>Customer Form</h1>
       <form (ngSubmit)="onSubmit()" #customerForm="ngForm">
 
 
@@ -93,11 +92,13 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <label for="crossStreet">Cross Street/Landmark</label>
-          <input type="text" class="form-control" id="crossStreet"
-          [(ngModel)]="model.crossStreet" name="crossStreet"
-          placeholder="Cross Street or Landmark">
+        <div class="cross-street">
+            <div class="form-group">
+                <label for="crossStreet">Cross Street/Landmark</label>
+                <input type="text" class="form-control" id="crossStreet"
+                [(ngModel)]="model.crossStreet" name="crossStreet"
+                placeholder="Cross Street or Landmark">
+              </div>
         </div>
 
         <div class="locationType">
@@ -118,24 +119,28 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <label for="subdivisionName">Subdivision Name</label>
-          <input type="text" class="form-control" id="subdivisionName"
-          [(ngModel)]="model.subdivisionName" name="subdivisionName"
-          placeholder="Subdivision Name">
+        <div class="subdivision-name">
+            <div class="form-group">
+                <label for="subdivisionName">Subdivision Name</label>
+                <input type="text" class="form-control" id="subdivisionName"
+                [(ngModel)]="model.subdivisionName" name="subdivisionName"
+                placeholder="Subdivision Name">
+              </div>
         </div>
 
-        <div class="form-group">
-          <label for="additionalDetails">Additional Details</label>
-          <textarea class="form-control" rows="2" cols="50"
-          [(ngModel)]="model.additionalDetails" name="additionalDetails"
-          maxlength="200" placeholder="Enter any additional details here">
-          </textarea>
+        <div class="additional-input">
+            <div class="form-group">
+                <label for="additionalDetails">Additional Details</label>
+                <textarea class="form-control" rows="2" cols="50"
+                [(ngModel)]="model.additionalDetails" name="additionalDetails"
+                maxlength="200" placeholder="Enter any additional details here">
+                </textarea>
+              </div>
         </div>
+        <button type="submit" class="btn btn-success" (click)="onSubmit(); setValue(model)" [disabled]="!customerForm.form.valid">Submit</button>
+        <button type="button" class="btn btn-default" (click)="newCustomer(); customerForm.reset();">New Customer</button>
 
       </form>
-      <button type="submit" class="btn btn-success" (click)="onSubmit(); setValue(model)" [disabled]="!customerForm.form.valid">Submit</button>
-      <button type="button" class="btn btn-default" (click)="newCustomer(); customerForm.reset();">New Customer</button>
     </div>
     <div [hidden]="!submitted">
       <h2>You submitted the following:</h2>

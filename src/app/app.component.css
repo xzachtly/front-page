@@ -1,13 +1,14 @@
 .header {
   padding: 40px;
   text-align: center;
-  background: url(../../images/Capture.png);
+  background-color: #3366cc;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 400px 175px;
+  background-size: 400px 10px;
   color: white;
   font-size: 30px;
   font-family: "Arial Black", Gadget, sans-serif;
+
 }
 * {
   box-sizing: border-box;
@@ -23,3 +24,4 @@ body {
 .wrapper > * {
   padding: 1em;
 }
+

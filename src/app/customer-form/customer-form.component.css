@@ -6,24 +6,40 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
+  height: 50px;
 }
 
 .addressRow {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
+  height: 50px;
 }
 
 .cityStateZip {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
+  height: 50px;
 }
 
 .locationType {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
+  height: 50px;
+}
+
+.cross-street {
+  height: 50px;
+}
+
+.subdivision-name {
+  height: 50px;
+}
+
+.additional-input {
+  height: 100px;
 }
 
 .addDetails input {
@@ -42,8 +58,22 @@ form p {
   grid-column: 1 / 3;
 }
 
-.customerInfo {
-  height: 100px;
+.container {
+  overflow: auto;
+  height: 450px;
 }
+
+input {
+  height: 25px;
+}
+
+select {
+  height: 25px;
+}
+
+.form-group {
+  height: 50px;
+}
+
 
 
