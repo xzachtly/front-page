@@ -1,0 +1,175 @@
+<div class="container">
+    <div [hidden]="submitted">
+      <h1>Customer Form</h1>
+      <form (ngSubmit)="onSubmit()" #customerForm="ngForm">
+
+
+        <div class="nameRow">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" required
+            [(ngModel)]="model.firstName" name="firstName"
+            #firstName="ngModel" placeholder="First Name">
+            <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
+                First Name is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" required
+            [(ngModel)]="model.lastName" name="lastName"
+            #lastName="ngModel" placeholder="Last Name">
+            <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
+                Last Name is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" class="form-control" id="phone" required
+            [(ngModel)]="model.phone" name="phone"
+            #phone="ngModel" placeholder="xxx-xxx-xxxx">
+            <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
+                Phone Number is required
+            </div>
+          </div>
+        </div>
+
+        <div class="addressRow">
+          <div class="form-group">
+            <label for="streetNum">Street Number</label>
+            <input type="text" class="form-control" id="streetNum" required
+            [(ngModel)]="model.streetNum" name="steetNum"
+            #streetNum="ngModel" placeholder="Street Number">
+            <div [hidden]="streetNum.valid || streetNum.pristine" class="alert alert-danger">
+                Street Number is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="streetName">Street Name</label>
+            <input type="text" class="form-control" id="streetName" required
+            [(ngModel)]="model.streetName" name="streetName"
+            #streetName="ngModel" placeholder="Street Number">
+            <div [hidden]="streetName.valid || streetName.pristine" class="alert alert-danger">
+                Street Name is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="unit">Apt/Unit#</label>
+            <input type="text" class="form-control" id="unit"
+            [(ngModel)]="model.unit" name="unit" placeholder="Apt/Unit#">
+          </div>
+        </div>
+
+        <div class="cityStateZip">
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" required
+            [(ngModel)]="model.city" name="city"
+            #city="ngModel" placeholder="City">
+            <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
+                City is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="state">State</label>
+            <select class="form-control" id="state" required
+               [(ngModel)]="model.state" name="state" placeholder="State">
+              <option *ngFor="let sta of states" [value]="sta">{{sta}}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="zip">Zip</label>
+            <input type="text" class="form-control" id="zip" required
+            [(ngModel)]="model.zip" name="zip"
+            #zip="ngModel" placeholder="Zip">
+            <div [hidden]="zip.valid || zip.pristine" lass="alert alert-danger">
+                Zip is required
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="crossStreet">Cross Street/Landmark</label>
+          <input type="text" class="form-control" id="crossStreet"
+          [(ngModel)]="model.crossStreet" name="crossStreet"
+          placeholder="Cross Street or Landmark">
+        </div>
+
+        <div class="locationType">
+          <div class="form-group">
+            <label for="buildingType">Building Type</label>
+            <input type="text" class="form-control" id="buildingType"
+            [(ngModel)]="model.buildingType" name="buildingType"
+            placeholder="Building Type">
+          </div>
+
+          <div class="form-group">
+            <label for="dwellingType">Dwelling Type</label>
+            <select class="form-control" id="dwellingType"
+               [(ngModel)]="model.dwellingType" name="dwellingType"
+               placeholder="Dwelling Type">
+              <option *ngFor="let dT of dTypes" [value]="dT">{{dT}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subdivisionName">Subdivision Name</label>
+          <input type="text" class="form-control" id="subdivisionName"
+          [(ngModel)]="model.subdivisionName" name="subdivisionName"
+          placeholder="Subdivision Name">
+        </div>
+
+        <div class="form-group">
+          <label for="additionalDetails">Additional Details</label>
+          <textarea class="form-control" rows="2" cols="50"
+          [(ngModel)]="model.additionalDetails" name="additionalDetails"
+          maxlength="200" placeholder="Enter any additional details here">
+          </textarea>
+        </div>
+
+      </form>
+      <button type="submit" class="btn btn-success" (click)="onSubmit(); setValue(model)" [disabled]="!customerForm.form.valid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="newCustomer(); customerForm.reset();">New Customer</button>
+    </div>
+    <div [hidden]="!submitted">
+      <h2>You submitted the following:</h2>
+      <div class="row">
+        <div class="col-xs-3">First Name:</div>
+        <div class="col-xs-9  pull-left">{{ model.firstName }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Last Name:</div>
+        <div class="col-xs-9 pull-left">{{ model.lastName }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Adress:</div>
+        <div class="col-xs-9 pull-left">{{ model.address }}</div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-xs-3">City:</div>
+        <div class="col-xs-9 pull-left">{{ model.city }}</div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-xs-3">State:</div>
+        <div class="col-xs-9 pull-left">{{ model.state }}</div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-xs-3">Zip:</div>
+        <div class="col-xs-9 pull-left">{{ model.zip }}</div>
+      </div>
+      <br>
+
+      <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+      <br>
+
+    </div>
+</div>

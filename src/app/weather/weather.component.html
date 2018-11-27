@@ -1,0 +1,16 @@
+<h3>Get configuration from JSON file here {{city}}</h3>
+<div>
+  <button (click)="showWeather()">get</button>
+  <button (click)="showWeatherResponse()">getResponse</button>
+  <span *ngIf="weather">
+    <p>City ID is "{{weather.id}}"</p>
+    <p>City name is "{{weather.name}}"</p>
+    <div *ngIf="headers">
+      Response headers:
+      <ul>
+        <li *ngFor="let header of headers">{{header}}</li>
+      </ul>
+    </div>
+  </span>
+</div>
+<p *ngIf="error" class="error">{{error | json}}</p>

@@ -1,0 +1,25 @@
+.header {
+  padding: 40px;
+  text-align: center;
+  background: url(../../images/Capture.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 400px 175px;
+  color: white;
+  font-size: 30px;
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 1rem;
+}
+
+.wrapper {
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+.wrapper > * {
+  padding: 1em;
+}
